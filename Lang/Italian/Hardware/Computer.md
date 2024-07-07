@@ -85,10 +85,6 @@ Memory Cards :
 
 Quarzo contiene Biossido di Silicio --> Substrato di Silicio (può essere dopato per essere sia un conduttore che un isolante) --> Transistor --> Con elettricità, codice binario
 
-b = bits  
-B = Bytes  
-8 bits = 1 Byte
-
 ## Modello di (John) Von Neumann
 Scienziato ungherese naturalizzato americano\
 Usato per la creazione del primo computer digitale (IAS machine)
@@ -139,3 +135,42 @@ Tutti Chip montati su Motherboard (= Scheda Madre) insieme alle schede di espans
 ### 1. Analogico e Digitale
 I segnali analogici sono sequenze infiniti di valori istantanei (semplicemente sono segnali continui) e si possono convertire in segnali digitali (che in italiano significa numerico, cioè con uno o più numeri - istanti) campionando istanti equidistanti del segnale, rendendolo discreto e poi digitalizzando il campionamento, cioè unire i segmenti per creare un grafico ad onde.
 ### 2. Passaggio da Analogico a Digitale
+Per trattare i dati analogici con un computer bisogna convertirli in digitali, in quanto è già capace di interpretare i segnali digitali con il sistema binario.
+Per eseguire la conversione ha bisogno di un microprocessore e due file che convertano in un senso e viceversa.
+### 3. Codice Binario
+I dati si dividono in 3 gruppi :
+- Alfabetici (lettere, o Alfanumerici, " + numeri)
+- Numerici (numeri)
+- Multimediali (foto, audio e video)
+
+Per codificare i dati si usa il sistema binario, basato su bit, inizialmente usato per descrivere lo stato dei circuiti digitali (1 = on, 0 = off)
+
+Simboli 0 e 1 = b = bit = "binary digit"  
+4 b = nibble  
+8 b = 1 B = Byte  
+1 b = 2^1 = 2 info. es. (0, 1);  
+2 b = 2^2 = 4 info. es. (00, 01, 10, 11);  
+3 b = 2^3 = 8 info. es. (000, 001, 010, 011, 100, 101, 110, 111);  
+
+Il bit più a destra è detto LSB (Least Significant Bit), mentre quello a sinistra è MSB (Most " ") perchè ha il valore più alto  
+
+Il sistema binario trova motivazioni ben precise :
+- Due sono gli stati di carica elettrica
+- Due sono gli stati di polarizzazione di una sostanza magnetizzabile
+- Passaggio on/off di una corrente in un conduttore
+- Passaggio on/off di luce in un cavo ottico
+### 4. Dati Alfabetici in Binario
+Cioè :
+- 26 Caratteri alfabeto anglosassone minuscoli
+- 26 Caratteri alfabeto anglosassone maiuscoli
+- 10 Cifre numeriche arabe
+- Parentesi e operatori
+- Caratteri particolari, punteggiatura e lettere accentate
+
+Metodo usato = ASCII (American Standard Code for Information Interchange), usa 8 bit e non 7 perchè così versione estesa con +128 caratteri di lettere accentate in altri paesi (es. Repubblica Ceca)
+
+Per tradurre ASCII suddividere la sequenza in gruppi di Byte (8 bit) e poi determinare i caratteri secondo la tabella
+### 5. Dall'ASCII all'Unicode
+Per lingue come l'arabo, il thailandese e il cinese si usa l'Unicode che usa 16 bit (2 B) e oggi sono stati definiti solo 40k codici Unicode di cui la metà per gli ideografi cinesi Han e 11k per le sillabe coreane Hangul
+
+I codici Unicode da 0 a 255 corrispondono ai codici ASCII standard e quindi sono compatibili
