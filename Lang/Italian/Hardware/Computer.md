@@ -132,6 +132,63 @@ Tutti Chip montati su Motherboard (= Scheda Madre) insieme alle schede di espans
     - CPU = Quadrato grigio in un alloggiamento detto ZIF (Zero Insertion Force, pk facile da inserire)
 
 ## Sistemi di Numerazione Posizionali
+Il sistema che usiamo noi oggi è il sistema numerico decimale-posizionale (chiamato a torto sistema numerale arabo in quanto deriva dagli indiani). Si chiama decimale perchè usa come base 10, ed è posizionale perchè la posizione della cifra nel numero cambia il suo valore :
+- 132 :
+    - 100, l'1 messo a sinistra è il MSB (Most Important Bit)
+    - 30
+    - 2, assume il valore normale del numero 2 ed è perciò il LSB (Least Important Bit)
+
+Per capire il sistema utilizzato in una sequenza di cifre si fa riferimento al pedice (subscript) che indica la base, es. 1101₂ è binario.
+
+Cifre = Cifre --> Ʃ = {Cifre}
+
+Base - Pedice - Sistema :
+- 10 - 10/  - Decimale :
+    - b = 10
+    - Ʃ = {0,1,2,3,4,5,6,7,8,9}
+    - es. 375 :
+        - 5 x 10⁰ = 5 x 1 = 5
+        - 7 x 10¹ = 7 x 10 = 70
+        - 3 x 10² = 3 x 100 = 300
+        - 375 = 375
+- 2 - 2 - Binario :
+    - b = 2
+    - Ʃ = {0,1}
+    - es. 1101₂ :
+        - 1 x 2⁰ = 1 x 1 = 1
+        - 0 x 2¹ = 0 x 2 = 0
+        - 1 x 2² = 1 x 4 = 4
+        - 1 x 2³ = 1 x 8 = 8
+        - 1101₂ = 13
+- 8 - 8 - Ottale :
+    - Ʃ = {0,1,2,3,4,5,6,7}
+    - es. 1057₈ :
+        - 7 x 8⁰ = 7 x 1 = 7
+        - 5 x 8¹ = 5 x 8 = 40
+        - 0 x 8² = 0 x 64 = 0
+        - 1 x 8³ = 1 x 512 = 512
+        - 1057₈ = 559₁₀ = 559
+- 16 - H - Esadecimale :
+    - Ʃ = {0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F}, dove :
+        - A = 10
+        - B = 11
+        - C = 12
+        - D = 13
+        - E = 14
+        - F = 15
+    - es. 34Eₕ (l'h dovrebbe essere maiuscola ma non trovo il simbolo, va bene anche questa) :
+        - E x 16⁰ = E x 1 = 14
+        - 4 x 16¹ = 4 x 16 = 64
+        - 3 x 16² = 3 x 256 = 768
+        - 34Eₕ = 846₁₀ = 846
+
+| Sistema     | Numeri |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+| ----------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| Binario     | 0000   | 0001   | 0010   | 0011   | 0100   | 0101   | 0110   | 0111   | 1000   | 1001   | 1010   | 1011   | 1100   | 1101   | 1110   | 1111   |
+| Ottale      | 00     | 01     | 02     | 03     | 04     | 05     | 06     | 07     | 10     | 11     | 12     | 13     | 14     | 15     | 16     | 17     |
+| Decimale    | 0      | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | 10     | 11     | 12     | 13     | 14     | 15     |
+| Esadecimale | 0      | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | A      | B      | C      | D      | E      | F      |
+
 ### 1. Analogico e Digitale
 I segnali analogici sono sequenze infiniti di valori istantanei (semplicemente sono segnali continui) e si possono convertire in segnali digitali (che in italiano significa numerico, cioè con uno o più numeri - istanti) campionando istanti equidistanti del segnale, rendendolo discreto e poi digitalizzando il campionamento, cioè unire i segmenti per creare un grafico ad onde.
 ### 2. Passaggio da Analogico a Digitale
@@ -163,7 +220,7 @@ Il sistema binario trova motivazioni ben precise :
 Cioè :
 - 26 Caratteri alfabeto anglosassone minuscoli
 - 26 Caratteri alfabeto anglosassone maiuscoli
-- 10 Cifre numeriche arabe
+- 10 Cifre numeriche
 - Parentesi e operatori
 - Caratteri particolari, punteggiatura e lettere accentate
 
