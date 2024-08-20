@@ -3,7 +3,35 @@
 Elabora informazioni da input per renderli in output
 
 ## Esempi (di computer)
-Notebook, Tablet, Smartphone e Phablet
+Notebook, Tablet, Smartphone e Phablet (Phone-Tablet - Schermo più grande)
+
+Schermo Touchscreen, due tipi:
+- Schermi Resistivi:
+    - Due strati conduttori distanziati, quando si premi in un punto si toccano e cambia la resistenza elettronica
+    - VANTAGGI:
+        - Tocco con + input, non serve un conduttore pk pressione
+        - Più precisi
+        - Costano meno
+        - Più resistenti a polvere, sporco o acqua
+    - LIMITI:
+        - Meno sensibilità
+        - No multi-touch
+        - Meno trasparenti, i.e. colori meno vividi
+        - Con il tempo diventano meno reattivi pk continuamente premuti
+- Schermi Capacitivi:
+    - Vetro ricoperto da sottilissimo strato di ossido metallico (solitamente indio-stagno detto ITO) che forma una griglia di elettrodi che creano un campo elettrico
+    - Quando un oggetto conduttivo tocca lo schermo altera il campo elettrico in quel punto, e il dito (il corpo umano) è un conduttore che causa una variazione di capacità (di immaganizzare carica elettrica) in quel punto
+    - I sensori al bordo dello schermo la quantificano e la localizzano
+    - VANTAGGI:
+        - Più sensibili e più reattivi
+        - Supportano multi-touch
+        - Maggiore trasparenza e visibilità, colori più vibranti, meglio anche in peggiori condizioni di luce
+        - Durano più a lungo
+    - LIMITI:
+        - Serve un conduttore per tocco
+        - Sensibili a umidità o acqua
+        - Costa di più
+        - Solitamente fatti in vetro quindi più facili da rompere
 
 I dispositivi periferici o le periferiche sono dell'hardware accessorio al computer con possibilmente relativo firmware (software collegato) che consentono il dialogo con l'utente (fonti di input, output o entrambi)
 
@@ -98,6 +126,8 @@ Memoria RAM contiene sia dati che programmi (opposto di modello Harvard che ha d
 
 ## Schema Libro
 
+![Schema Libro](https://drive.google.com/uc?export=view&id=1h54lxuqsoSbWBuohgFqZBIxSXIpuoewp)
+
 Lo schema del libro si ispira all'architettura di Von Neumann in quanto presenta :
 - Unità centrale di elaborazione (CPU) :
     - Unità aritmetico-logica (ALU, Arithmetic Logic Unit) =
@@ -146,7 +176,7 @@ Base - Pedice - Sistema :
 - 10 - 10/  - Decimale :
     - b = 10
     - Ʃ = {0,1,2,3,4,5,6,7,8,9}
-    - es. 375 :
+    - es. (10 - 10) 375 :
         - 5 x 10⁰ = 5 x 1 = 5
         - 7 x 10¹ = 7 x 10 = 70
         - 3 x 10² = 3 x 100 = 300
@@ -154,20 +184,35 @@ Base - Pedice - Sistema :
 - 2 - 2 - Binario :
     - b = 2
     - Ʃ = {0,1}
-    - es. 1101₂ :
+    - es. (2 - 10) 1101₂ :
         - 1 x 2⁰ = 1 x 1 = 1
         - 0 x 2¹ = 0 x 2 = 0
         - 1 x 2² = 1 x 4 = 4
         - 1 x 2³ = 1 x 8 = 8
+        - 2⁰ + 2² + 2³ = 1101₂ = 13 // Basta sommare i 2^ degli 1
         - 1101₂ = 13
+    - es. (10 - 2, Divisione Ripetuta) 42 :
+        - 42 : 2 = (quozienti) 21, (resto) 0
+        - 21 : 2 = 10, 1
+        - 10 : 2 = 5, 0
+        - 5 : 2 = 2, 1
+        - 2 : 2 = 1, 0
+        - 1 : 2 = 0, 1
+        - 42₁₀ = 101010₂ // Si legge da sotto la tabella
 - 8 - 8 - Ottale :
     - Ʃ = {0,1,2,3,4,5,6,7}
-    - es. 1057₈ :
+    - es. (8 - 10) 1057₈ :
         - 7 x 8⁰ = 7 x 1 = 7
         - 5 x 8¹ = 5 x 8 = 40
         - 0 x 8² = 0 x 64 = 0
         - 1 x 8³ = 1 x 512 = 512
         - 1057₈ = 559₁₀ = 559
+    - es. (10 - 8) 3157 :
+        - 3157 : 8 = 394, 5
+        - 394 : 8 = 49, 2
+        - 49 : 8 = 6, 1
+        - 6 : 8 = 0, 6
+        - 3157₁₀ = 6125₈
 - 16 - H - Esadecimale :
     - Ʃ = {0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F}, dove :
         - A = 10
@@ -176,11 +221,23 @@ Base - Pedice - Sistema :
         - D = 13
         - E = 14
         - F = 15
-    - es. 34Eₕ (l'h dovrebbe essere maiuscola ma non trovo il simbolo, va bene anche questa) :
+    - es. (16 - 10) 34Eₕ (l'h dovrebbe essere maiuscola ma non trovo il simbolo, va bene anche questa) :
         - E x 16⁰ = E x 1 = 14
         - 4 x 16¹ = 4 x 16 = 64
         - 3 x 16² = 3 x 256 = 768
         - 34Eₕ = 846₁₀ = 846
+    - es. (10 - 16) 3157 :
+        - 3157 : 16 = 197, 5
+        - 197 : 16 = 12, 5
+        - 12 : 16 = 0, 12 // 12 = C
+        - 3157₁₀ = C55ₕ
+
+Come ottenere il resto per la divisione :
+- es. 346 : 7 = 49,4285714
+    - Arrotondare per difetto = 49
+    - 49 x 7 = 343
+    - 346 - 343 = 3, 3 è il Resto
+    - 346 : 7 = 49, 3
 
 | Sistema     | Numeri |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
 | ----------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
