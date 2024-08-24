@@ -7,7 +7,7 @@ Notebook, Tablet, Smartphone e Phablet (Phone-Tablet - Schermo più grande)
 
 Schermo Touchscreen, due tipi:
 - Schermi Resistivi:
-    - Due strati conduttori distanziati, quando si premi in un punto si toccano e cambia la resistenza elettronica
+    - Due strati conduttori distanziati, quando si preme in un punto si toccano e cambia la resistenza elettronica
     - VANTAGGI:
         - Tocco con + input, non serve un conduttore pk pressione
         - Più precisi
