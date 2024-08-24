@@ -126,7 +126,7 @@ Memoria RAM contiene sia dati che programmi (opposto di modello Harvard che ha d
 
 ## Schema Libro
 
-![Schema Libro](https://drive.google.com/uc?export=view&id=1h54lxuqsoSbWBuohgFqZBIxSXIpuoewp)
+![Schema Libro](/Assets/Images/graph.png)
 
 Lo schema del libro si ispira all'architettura di Von Neumann in quanto presenta :
 - Unità centrale di elaborazione (CPU) :
