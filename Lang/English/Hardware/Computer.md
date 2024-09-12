@@ -1,93 +1,92 @@
 # Computer
-*qualsiasi cosa che computa*
-Elabora informazioni da input per renderli in output
+*anything that computes*
+Turns input information into output
 
-## Esempi (di computer)
-Notebook, Tablet, Smartphone e Phablet (Phone-Tablet - Schermo più grande)
+## Examples (of computers)
+Notebooks, Tablets, Smartphones and Phablets (Phone-Tablet - Bigger Screen)
 
-Schermo Touchscreen, due tipi:
-- Schermi Resistivi:
-    - Due strati conduttori distanziati, quando si preme in un punto si toccano e cambia la resistenza elettronica
-    - VANTAGGI:
-        - Tocco con + input, non serve un conduttore pk pressione
-        - Più precisi
-        - Costano meno
-        - Più resistenti a polvere, sporco o acqua
-    - LIMITI:
-        - Meno sensibilità
+Touchscreens, 2 types:
+- Resistive Screens:
+    - 2 Distanced conductive layers, when pressed in a point they touch and the electronic resistance changes
+    - PROS:
+        - More inputs allowed, works with pressure so it doesn't have to be a conductor
+        - More precise
+        - Cost less
+        - More resistant to dust, dirt or water
+    - CONS:
+        - Less sensitivity
         - No multi-touch
-        - Meno trasparenti, i.e. colori meno vividi
-        - Con il tempo diventano meno reattivi pk continuamente premuti
-- Schermi Capacitivi:
-    - Vetro ricoperto da sottilissimo strato di ossido metallico (solitamente indio-stagno detto ITO) che forma una griglia di elettrodi che creano un campo elettrico
-    - Quando un oggetto conduttivo tocca lo schermo altera il campo elettrico in quel punto, e il dito (il corpo umano) è un conduttore che causa una variazione di capacità (di immaganizzare carica elettrica) in quel punto
-    - I sensori al bordo dello schermo la quantificano e la localizzano
-    - VANTAGGI:
-        - Più sensibili e più reattivi
-        - Supportano multi-touch
-        - Maggiore trasparenza e visibilità, colori più vibranti, meglio anche in peggiori condizioni di luce
-        - Durano più a lungo
-    - LIMITI:
-        - Serve un conduttore per tocco
-        - Sensibili a umidità o acqua
-        - Costa di più
-        - Solitamente fatti in vetro quindi più facili da rompere
+        - Less trasparent, i.e. less vibrant colors
+        - With time they become less reactive cuz they're constantly pressed
+- Capacitive Screens:
+    - Glass covered with an extremely thin layer of metallic oxide (usually indium-tin known as ITO) which forms a grid of electrodes which create an electric field
+    - When a conductive object touches the screen it alters the electric field in that point, and the finger (the human body) is a conductor which causes a variation in the capacity (of storing eletric charge) in that point
+    - The sensors at the border of the screen quantify and locate the touch
+    - PROS:
+        - More sensitivity and reactivity
+        - Support multi-touch
+        - Major transparency and visibility, vibrant colors, much better in low light conditions
+        - Last longer
+    - CONS:
+        - Need a conductor to recognise touch
+        - Sensible to humidity or water
+        - Cost more
+        - Usually made of glass so easier to break
 
-I dispositivi periferici o le periferiche sono dell'hardware accessorio al computer con possibilmente relativo firmware (software collegato) che consentono il dialogo con l'utente (fonti di input, output o entrambi)
+Peripheral devices or peripherals are accessory hardware of the computer with sometimes relative firmware (linked software) which allow communication with the user (sources of input, output or both)
 
-Parte che elabora è l'unità centrale (CPU - Central Processing Unit) ed è collocata logicamente tra l'input e l'output
+The part which computes is the Central Processing Unit (CPU) and it's logically located between the input and the output
 
-Contenuta nel case (o cabinet) insieme agli altri componenti, tra cui l'alimentatore e il chassis (telaio che sostiene) prodotto con il SECC (Steel Electrogalvanized Cold-rolled Coil)
+Contained in the case (or cabinet) alongside the other components, among which the adapter and the chassis (frame that supports) made with SECC (Steel Electrogalvanized Cold-rolled Coil)
 
 Case :
-- Pizza Box / Desktop (poco diffuso, orizzontale):
-    - Detti originariamente Pizza Box per lo slogan del 1991 di Aviion Unix:
-        - Solo se erano alti 2 pollici (= 5cm) o meno, sennò Desktop
+- Pizza Box / Desktop (less used, horizontal):
+    - Originally called Pizza Boxes for the 1991 slogan of Aviion Unix:
+        - Only if they were tall 2 inches (= 5cm) or less, otherwise called Desktops
         - Slogan: "Who just fit mainframe power in a pizza box?"
-        - == "Chi ha appena messo la potenza di un mainframe in una scatola di una pizza?"
-    - Poi presero tutti il nome di Desktop per contrastare il fatto che i Tower furono messi sotto la scrivania (Underdesk)
-- Tower (molto più comune, verticale)
-    - Mini-tower (fino a 3 slot)
-    - Middle-tower (fino a 4 slot)
-    - Big-tower (> 4 slot)
+    - Then they all took the name of Desktops to contrast their Underdesk counterpart
+- Tower (much more common, vertical)
+    - Mini-tower (up to 3 slots)
+    - Middle-tower (up to 4 slots)
+    - Big-tower (> 4 slots)
 
-Gli slot sono per le periferiche interne aggiuntive (o in altre parole sono detti slot di espansione e sono nella scheda madre)
+Slots are additional internal peripherals (or in other words they're also called expansion slots and are in the motherboard)
 
-Sulla parte anteriore del case sono presenti :
-- Lettore CD / DVD
+Front panel :
+- CD / DVD Reader
     - CD = Audio-only format
     - DVD = 480p Video (+ Audio)
     - Blu-Ray = 1080p Video (8x video as dvd, + Lossless Audio --> Lossless = no audio lost during decryption, faithful copy of original)
     - 4K Blu-Ray = 4K Video and much better colours (HDR = High Dynamic Range imaging, HDR10+)
-- Slot (numero varia)
-- Pulsante accensione e reset (restart/reboot non un factory reset)
-- Porte USB e Jack (cuffie / microfono)
+- Slots (number varies)
+- Start / Stop & Restart buttons
+- USB & Jack (headphones / mic) Ports
 
-Pannello posteriore :
-- Presa di alimentazione
-- Ventola di raffreddamento dell'alimentatore
-- Fessura per il raffreddamento della scheda madre
-- Alloggiamenti per schede di espansione
-- Porte di comunicazione
-    - miniDIN PS/2 : Mouse e tastiera
-    - Seriale (bit per bit, più lenta ma dati vanno più lontano)
-    - Parallela (ormai in disuso, più veloce ma meno lontano)
+Back panel :
+- Power outlet / socket
+- Cooling fan (for the power outlet)
+- Cooling gap (for the motherboard)
+- Spots for the expansion cards
+- Communication ports:
+    - miniDIN PS/2 : Mouse & keyboard
+    - Serial (bit by bit, slower but data goes farther)
+    - Parallel (not used anymore, faster but data)
     - LAN (Local Area Network - x rete, 1-5 km), MAN (Metropolitan Area Network, 50-60 km, groups up LANs), WAN (Wide ' ', 100-1000 km, groups up MANs - MEN)
-    - FireWire (alta velocità audio / video, es. telecamera)
-    - USB (un paio qui le altre parte anteriore)
-    - S/PDIF output audio "Sony/Philips Digital Interface Format"
-    - VGA (Video Graphics Array) collega schermo
-    - HDMI (High Definition Multimedia Interface) collega a LIM (Lavagne Interattive Multimediali)
-        - 1.0 colori fino 24 bit
-        - 1.3 colori fino 48 bit 
+    - FireWire (high speed audio / video, es. camera)
+    - USB (a couple here, rest on front panel)
+    - S/PDIF audio output "Sony/Philips Digital Interface Format"
+    - VGA (Video Graphics Array) connects screen
+    - HDMI (High Definition Multimedia Interface) connects to IWBs (Interactive Whiteboards)
+        - 1.0 colors up to 24 bits
+        - 1.3 colors up to 48 bits
         - 1.4 video 3D, 120 Hz
         - 2.0 Ultra HD-4K
 
-Leggi di (Gordon) Moore :
-1. Numero di transistor in circuito integrato x2 ogni 18 mesi
-2. Investimento necessario per nuovi microprocessori è esponenziale nel tempo + Costo fabbrica chip raddoppia da una gen all'altra
+(Gordon) Moore's Laws :
+1. Number of transistors in an integrated circuit x2 every 18 months
+2. Investment for new microprocessors is exponential over time + Cost of chip plants x2 from one gen to another
 
-RAM = Random Access Memory, memoria che contiene i dati dei programmi in corso di esecuzione
+RAM = Random Access Memory, memory which contains the data of the programs currently running
 
 CPU = Central Processing Unit, nel microprocessore
 GPU = Graphics Processing Unit
@@ -118,7 +117,7 @@ Memory Cards :
 
 Quarzo contiene Biossido di Silicio --> Substrato di Silicio (può essere dopato per essere sia un conduttore che un isolante) --> Transistor --> Con elettricità, codice binario
 
-## Modello di (John) Von Neumann
+## (John) Von Neumann's Architecture
 Scienziato ungherese naturalizzato americano\
 Usato per la creazione del primo computer digitale (IAS machine)
 
@@ -129,7 +128,7 @@ Architettura base per architetture moderne
 
 Memoria RAM contiene sia dati che programmi (opposto di modello Harvard che ha due distinte memorie centrali)
 
-## Grafico Libro
+## Book Graph
 
 ![Grafico Libro](/Lang/Italian/Assets/Images/grafico.png)
 
@@ -166,7 +165,7 @@ Tutti Chip montati su Motherboard (= Scheda Madre) insieme alle schede di espans
     - RAM = rettangolo verde con quadrati neri dentro
     - CPU = Quadrato grigio in un alloggiamento detto ZIF (Zero Insertion Force, pk facile da inserire)
 
-## Sistemi di Numerazione Posizionali
+## Positional Number Systems
 Il sistema che usiamo noi oggi è il sistema numerico decimale-posizionale (chiamato a torto sistema numerale arabo in quanto deriva dagli indiani). Si chiama decimale perchè usa come base 10, ed è posizionale perchè la posizione della cifra nel numero cambia il suo valore :
 - 132 :
     - 100, l'1 messo a sinistra è il MSB (Most Important Bit)
@@ -257,14 +256,14 @@ Come ottenere il resto per la divisione :
 | Decimale    | 0      | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | 10     | 11     | 12     | 13     | 14     | 15     |
 | Esadecimale | 0      | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | A      | B      | C      | D      | E      | F      |
 
-### 1. Analogico e Digitale
+### 1. Analog & Digital
 I segnali analogici sono sequenze infiniti di valori istantanei (semplicemente sono segnali continui) e si possono convertire in segnali digitali (che in italiano significa numerico, cioè con uno o più numeri - istanti) campionando istanti equidistanti del segnale, rendendolo discreto e poi digitalizzando il campionamento, cioè unire i segmenti per creare un grafico ad onde.
 
-### 2. Passaggio da Analogico a Digitale
+### 2. From Analog to Digital
 Per trattare i dati analogici con un computer bisogna convertirli in digitali, in quanto è già capace di interpretare i segnali digitali con il sistema binario.
 Per eseguire la conversione ha bisogno di un microprocessore e due file che convertano in un senso e viceversa.
 
-### 3. Codice Binario
+### 3. Binary Code
 I dati si dividono in 3 gruppi :
 - Alfabetici (lettere, o Alfanumerici, " + numeri)
 - Numerici (numeri)
@@ -282,7 +281,7 @@ Simboli 0 e 1 = b = bit = "binary digit"
 Il bit più a destra è detto LSB (Least Significant Bit), mentre quello a sinistra è MSB (Most " ") perchè ha il valore più alto
 
 Unità delle Informazioni:
-- kB (kilo) = 1024^1 B = 1024^1 * 2^8 b
+- kB (kilo) = 1024^1 B
 - MB (Mega) = 1024^2 B
 - GB (Giga) = 1024^3 B
 - TB (Tera) = 1024^4 B
@@ -299,7 +298,7 @@ Il sistema binario trova motivazioni ben precise :
 - Passaggio on/off di una corrente in un conduttore
 - Passaggio on/off di luce in un cavo ottico
 
-### 4. Dati Alfabetici in Binario
+### 4. Alfabetical Data in Binary
 Cioè :
 - 26 Caratteri alfabeto anglosassone minuscoli
 - 26 Caratteri alfabeto anglosassone maiuscoli
@@ -313,7 +312,7 @@ Per tradurre ASCII suddividere la sequenza in gruppi di Byte (8 bit) e poi deter
 
 es. 01000001 = 'A', bisogna vedere la tabella
 
-### 5. Dall'ASCII all'Unicode
+### 5. From ASCII to Unicode
 Per lingue come l'arabo, il thailandese e il cinese si usa l'Unicode che usa 16 bit (2 B) e oggi sono stati definiti solo 40k codici Unicode di cui la metà per gli ideografi cinesi Han e 11k per le sillabe coreane Hangul
 
 I codici Unicode da 0 a 255 corrispondono ai codici ASCII standard e quindi sono compatibili
