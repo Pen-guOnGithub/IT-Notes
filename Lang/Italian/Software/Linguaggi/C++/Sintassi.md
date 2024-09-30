@@ -318,6 +318,212 @@ Questa è una lista di cosa fa ciascuna di esse:
         }
     }
     ```
+    - Si possono anche Annidare:
+        - Esempio (Tabelline):
+        ```c++
+        // Due for loop annidati per stampare una tabellina fino a 10
+        #include <iostream>
+
+        using std::cout;
+
+        int main() {
+            for(int i = 1; i <= 10; i++) {
+                for(int j = 1; j <= 10; j++) {
+                    cout<<i * j<<" ";
+                }
+                cout<<'\n';
+            }
+        }
+        ```
+        - Output:
+        ```
+        1 2 3 4 5 6 7 8 9 10 
+        2 4 6 8 10 12 14 16 18 20 
+        3 6 9 12 15 18 21 24 27 30 
+        4 8 12 16 20 24 28 32 36 40 
+        5 10 15 20 25 30 35 40 45 50 
+        6 12 18 24 30 36 42 48 54 60 
+        7 14 21 28 35 42 49 56 63 70 
+        8 16 24 32 40 48 56 64 72 80 
+        9 18 27 36 45 54 63 72 81 90 
+        10 20 30 40 50 60 70 80 90 100 
+        ```
+
+        - Esempio (Geometria : Quadrato):
+        ```c++
+        #include <iostream>
+
+        using std::cout;
+        using std::cin;
+
+        int main() {
+            int side;
+
+            cout<<"Lato: ";
+            cin>>side;
+            cout<<'\n';
+
+            for(int i = 0; i != side; i++) {
+                for(int j = 0; j != side; j++) {
+                    cout<<"* ";
+                }
+                cout<<'\n';
+            }
+        }
+        ```
+        - Output:
+        ```
+        Lato: 5
+
+        * * * * * 
+        * * * * * 
+        * * * * * 
+        * * * * * 
+        * * * * * 
+        ```
+
+        - Esempio (Geometria : Quadrato Vuoto):
+        ```c++
+        #include <iostream>
+
+        using std::cout;
+        using std::cin;
+
+        int main() {
+            int side;
+
+            cout<<"Lato: ";
+            cin>>side;
+            cout<<'\n';
+
+            for(int i = 0; i != side; i++) {
+                for(int j = 0; j != side; j++) {
+                    if(i == 0 || i == side-1 || j == 0 || j == side-1) {
+                        cout<<"* ";
+                    } else {
+                        cout<<"  ";
+                    }
+                }
+                cout<<'\n';
+            }
+        }
+        ```
+        - Output:
+        ```
+        Lato: 5
+
+        * * * * * 
+        *       * 
+        *       * 
+        *       * 
+        * * * * * 
+        ```
+
+        - Esempio (Geometria : Triangolo Vuoto): 
+        ```c++
+        #include <iostream>
+
+        using std::cout;
+        using std::cin;
+
+        int main() {
+            int h;
+
+            cout<<"Altezza: ";
+            cin>>h;
+            cout<<'\n';
+
+            for(int i = 0; i < h; i++) {
+                // Spazi
+                    /* Con j < (h - i - 1):
+                    i = 0, j < h - 1, es. h = 5, j < 4
+                    i = 1, j < h - 2, es. h = 5, j < 3
+                    = Diminuiscono più di scende nel triangolo
+                    */
+                for(int j = 0; j < h - i - 1; j++) {
+                    cout<<"  ";
+                }
+                // Stelle
+                    /* Con j < (i * 2 + 1):
+                    Hai 1, 3, 5 stelle e così via. 
+                    In sostanza la base è il doppio dell'altezza + le stelle sono dispari quindi + 1
+                    */
+                for(int j = 0; j < (i * 2 + 1); j++) {
+                    // Prima stella : j == 0
+                    // Stella fine riga : j == (2 * i)
+                    // Stelle su ultima riga : i == h - 1
+                    if(j == 0 || j == (2 * i) || i == h - 1) {
+                        cout<<"* ";
+                    } else {
+                        cout<<"  ";
+                    }
+                }
+                cout<<'\n';
+            }
+        }
+        ```
+        - Output:
+        ```
+        Altezza: 5
+
+                * 
+              *   * 
+            *       * 
+          *           * 
+        * * * * * * * * * 
+        ```
+
+        - Esempio (Geometria : Albero): 
+        ```c++
+        #include <iostream>
+
+        using std::cout;
+        using std::cin;
+
+        int main() {
+            int h;
+
+            cout<<"Altezza: ";
+            cin>>h;
+
+            // Corona
+            for(int i = 0; i <= h; i++) {
+                int spaceCount = h - i + 1;
+                int starCount = (i * 2) - 1;
+                
+                for(int j = 0; j < spaceCount; j++) {
+                    cout<<" ";
+                }
+
+                for(int j = 0; j < starCount; j++) {
+                    cout<<"*";
+                }
+
+                cout<<'\n';
+            }
+
+            // Tronco
+            for(int i = 0; i < 3; i++) {
+                for(int j = 0; j < h; j++) {
+                    cout<<" ";
+                }
+                cout<<"*\n";
+            }
+        }
+        ```
+        Output:
+        ```
+        Altezza: 5
+
+             *
+            ***
+           *****
+          *******
+         *********
+             *
+             *
+             *
+        ```
 
 - ### Cicli While:
     - 
@@ -461,9 +667,14 @@ Nella "Chiamata per Valore" stiamo trattando una variabile inizializzata diretta
 
 Per risolvere questo, usiamo la "Chiamata per Riferimento" che significa semplicemente passare un &indirizzo (quindi la posizione) della variabile nella funzione, facendo si che si salvi nell'&. Torna ai pointer se non hai ancora capito bene.
 
-## Pseudorandomness
-`srand(time(NULL));` // Generazione di numeri pseudocasuali
-`player = rand()%6+1;` // Un giocatore tira un dado
+## Pseudorandomness (PRNG)
+`srand(time(NULL));` // PRNG(enerator)
+
+`player = rand()%6` // Returns : [0, 5]
+`player = rand()%6+1;` // Returns : [1, 6]
+
+`num = rand() % (max - min + 1)` // Returns : [0, max - min]
+`num = rand() % (max - min + 1) + min` // Returns : [min, max]
 
 ## Array
 Praticamente sono solo liste, quando vengono inizializzati nelle parentesi quadre con il numero di elementi, quando vengono chiamati partono da 0 quindi -1.

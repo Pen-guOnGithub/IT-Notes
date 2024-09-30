@@ -21,7 +21,7 @@ int main() {
         // Stars
         for(int j = 0; j < (i * 2 + 1); j++) {
             // Start Row : j == 0
-            // End Row :
+            // End Row : j == (2 * i)
             // Last Row : i == h - 1
             if (j == 0 || j == (2 * i) || i == h - 1) {
                 cout << "* ";
