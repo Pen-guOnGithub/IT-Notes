@@ -4,6 +4,8 @@ Caratteristiche:
 - Orientato agli oggetti
 - Usa ;
 - Case-sensitive
+Impieghi:
+- Scuola (1ª Lingua)
 
 ## File Structure
 Esempio:
@@ -26,13 +28,13 @@ Delle variabili dichiarate;
 Numeri:
 ```c++
 // Interi (Senza decimali, - 0 +)
-int num1 = 1;
+int num = 1;
 
 // Float (Decimali, numeri più piccoli)
-float num2 = 1.5;
+float num = 1.5;
 
 // Double (Decimali, numeri più grossi)
-double num3 = 2.5;
+double num = 2.5;
 
 // Carattere (Un Carattere)
 char ch = 'A';
@@ -41,50 +43,6 @@ char ch = 'A';
 #include <cstring>
 using std::string;
 string str = "Ciao Mondo";
-```
-
-## Pointer
-Sono variabili che "puntano" nella memoria agli INDIRIZZI di altre variabili.
-Dichiarazione "tipo * nome"
-`int *ptr` ptr è il nome della variabile, * asterisco (senza è una variabile normale, multipli se pointer a pointer), il tipo di dato a cui punta (int)
-```c++
-int x = 10;
-int *ptr = &x;
-// & = Operatore Indirizzo, Usato per puntare alla POSIZIONE dei dati di x (indirizzo)
-int y = *ptr
-// * = Operatore di Dereferenziazione, Usato per accedere ai dati dall'INDIRIZZO a cui il pointer punta
-```
-NullPointerException, indirizzo invalido (mancante, corrotto, intenzionale, cambio posizione - aggiornamento, etc)
-`int *ptr = nullptr // Intenzionale`
-
-Pointer + Array
-```c++
-int arr[3] = {5, 10, 5}
-int *ptr = arr; // Punta al primo elemento nell'array, 5
-ptr++; // Sposta una volta a destra, 10
-ptr--; // Sposta una volta a sinistra, 5
-ptr = ptr + 2; // 15
-std::cout<<*ptr<<'\n' // Per stamparlo usa l'asterisco per estrarre i dati
-```
-
-Pointer++
-```c++
-int var = 10;
-int *ptr = &var;
-int **ptr2 = &ptr;
-int ***ptr3 = &ptr2;
-std::cout<<**ptr2<<'\n'; // Doppia asterisco pk 2 pointer
-std::cout<<***ptr3<<'\n'; // Triplo asterisco pk 3 pointer
-```
-
-Allocazione Dinamica della Memoria (dinamica = a runtime, quando esegue codice, statica : cioè array dimensione fissa, etc)
-```c++
-int* ptr = new int;  // Allocare (dinamicamente) la memoria per un intero
-*ptr = 20;
-
-std::cout << *ptr << std::endl;  // Stampa 20
-
-delete ptr;  // Deallocare la memoria
 ```
 
 ## Operatori
@@ -236,46 +194,25 @@ Questa è una lista di cosa fa ciascuna di esse:
     - Utilizzano istruzioni Break al loro interno, motivo per cui le ho trattate prima;
     - Esempio:
     ```c++
-    #include <iostream>
-    #include <cstring>
+    int p;
 
-    using std::cout;
-    using std::cin;
-    using std::string;
-
-    int main() {
-        string fruit;
-
-        cout<<"Frutti disponibili: Mele, banane e arancie";
-        cout<<"Scegli un frutto e ti diremo il suo colore: ";
-        cin>>fruit;
-
-        switch(fruit) {
-            case "Mela":
-                cout<<"Rosso";
-                break;
-            case "mela":
-                cout<<"rosso";
-                break;
-            case "Banana":
-                cout<<"Giallo";
-                break;
-            case "banana":
-                cout<<"giallo";
-                break;
-            case "Arancia":
-                cout<<"Arancione";
-                break;
-            case "arancia":
-                cout<<"arancione";
-                break;
-            default:
-                cout<<"Non abbiamo quel frutto";
-                break;
-        }
+    cout<<"Piano Ascensore (1, 2 o 3): ";
+    cin>>p;
+    
+    switch(p) {
+        case 1:
+            cout<<"Sei al 1º Piano";
+            break;
+        case 2:
+            cout<<"Sei al 2º Piano";
+            break;
+        case 3:
+            cout<<"Sei al 3º Piano";
+            break;
+        default:
+            cout<<"Non abbiamo quel piano";
+            break;
     }
-
-    return 0;
     ```
 
 - ### Istruzioni Continue:
@@ -285,54 +222,39 @@ Questa è una lista di cosa fa ciascuna di esse:
     ```c++
     // L'istruzione continue salta la stampa del numero 5 quando i è uguale a 5
 
-    #include <iostream>
-
-    using std::cout;
-    using std::endl;
-
-    int main() {
-        for(int i = 1; i<=10; i++) {
-            if(i == 5) {
-                continue;
-            }
-            cout<<i<<endl;
+    for(int i = 1; i<=10; i++) {
+        if(i == 5) {
+            continue;
         }
+        cout<<i<<endl;
     }
     ```
 
 - ### Ciclo For:
-    - 
+    - Smette di ciclare quando la condizione è falsa
     - Per farlo ciclare all'infinito: `for(;;) {}`
     - Esempio:
     ```c++
     // Un semplice ciclo for che conta fino a 10
 
-    #include <iostream>
-
-    using std::cout;
-    using std::endl;
-
-    int main() {
-        for(int i = 1; i<=10; i++) {
-            cout<<i<<endl;
-        }
+    // int i = 1 | Inizializzazione variabile
+    // i <= 10 | Condizione
+    // i++ | Codice eseguito ogni ciclo (Quasi sempre ++ / --)
+    for(int i = 1; i<=10; i++) {
+        cout<<i<<endl;
     }
     ```
+
     - Si possono anche Annidare:
         - Esempio (Tabelline):
         ```c++
         // Due for loop annidati per stampare una tabellina fino a 10
-        #include <iostream>
 
-        using std::cout;
-
-        int main() {
-            for(int i = 1; i <= 10; i++) {
-                for(int j = 1; j <= 10; j++) {
-                    cout<<i * j<<" ";
-                }
-                cout<<'\n';
+        for(int i = 1; i <= 10; i++) {
+            for(int j = 1; j <= 10; j++) {
+                cout<<i * j<<" ";
             }
+            cout<<'\n';
         }
         ```
         - Output:
@@ -351,24 +273,17 @@ Questa è una lista di cosa fa ciascuna di esse:
 
         - Esempio (Geometria : Quadrato):
         ```c++
-        #include <iostream>
+        int side;
 
-        using std::cout;
-        using std::cin;
+        cout<<"Lato: ";
+        cin>>side;
+        cout<<'\n';
 
-        int main() {
-            int side;
-
-            cout<<"Lato: ";
-            cin>>side;
-            cout<<'\n';
-
-            for(int i = 0; i != side; i++) {
-                for(int j = 0; j != side; j++) {
-                    cout<<"* ";
-                }
-                cout<<'\n';
+        for(int i = 0; i != side; i++) {
+            for(int j = 0; j != side; j++) {
+                cout<<"* ";
             }
+            cout<<'\n';
         }
         ```
         - Output:
@@ -384,28 +299,21 @@ Questa è una lista di cosa fa ciascuna di esse:
 
         - Esempio (Geometria : Quadrato Vuoto):
         ```c++
-        #include <iostream>
+        int side;
 
-        using std::cout;
-        using std::cin;
+        cout<<"Lato: ";
+        cin>>side;
+        cout<<'\n';
 
-        int main() {
-            int side;
-
-            cout<<"Lato: ";
-            cin>>side;
-            cout<<'\n';
-
-            for(int i = 0; i != side; i++) {
-                for(int j = 0; j != side; j++) {
-                    if(i == 0 || i == side-1 || j == 0 || j == side-1) {
-                        cout<<"* ";
-                    } else {
-                        cout<<"  ";
-                    }
+        for(int i = 0; i != side; i++) {
+            for(int j = 0; j != side; j++) {
+                if(i == 0 || i == side-1 || j == 0 || j == side-1) {
+                    cout<<"* ";
+                } else {
+                    cout<<"  ";
                 }
-                cout<<'\n';
             }
+            cout<<'\n';
         }
         ```
         - Output:
@@ -421,45 +329,38 @@ Questa è una lista di cosa fa ciascuna di esse:
 
         - Esempio (Geometria : Triangolo Vuoto): 
         ```c++
-        #include <iostream>
+        int h;
 
-        using std::cout;
-        using std::cin;
+        cout<<"Altezza: ";
+        cin>>h;
+        cout<<'\n';
 
-        int main() {
-            int h;
-
-            cout<<"Altezza: ";
-            cin>>h;
-            cout<<'\n';
-
-            for(int i = 0; i < h; i++) {
-                // Spazi
-                    /* Con j < (h - i - 1):
-                    i = 0, j < h - 1, es. h = 5, j < 4
-                    i = 1, j < h - 2, es. h = 5, j < 3
-                    = Diminuiscono più di scende nel triangolo
-                    */
-                for(int j = 0; j < h - i - 1; j++) {
+        for(int i = 0; i < h; i++) {
+            // Spazi
+                /* Con j < (h - i - 1):
+                i = 0, j < h - 1, es. h = 5, j < 4
+                i = 1, j < h - 2, es. h = 5, j < 3
+                = Diminuiscono più di scende nel triangolo
+                */
+            for(int j = 0; j < h - i - 1; j++) {
+                cout<<"  ";
+            }
+            // Stelle
+                /* Con j < (i * 2 + 1):
+                Hai 1, 3, 5 stelle e così via. 
+                In sostanza la base è il doppio dell'altezza + le stelle sono dispari quindi + 1
+                */
+            for(int j = 0; j < (i * 2 + 1); j++) {
+                // Prima stella : j == 0
+                // Stella fine riga : j == (2 * i)
+                // Stelle su ultima riga : i == h - 1
+                if(j == 0 || j == (2 * i) || i == h - 1) {
+                    cout<<"* ";
+                } else {
                     cout<<"  ";
                 }
-                // Stelle
-                    /* Con j < (i * 2 + 1):
-                    Hai 1, 3, 5 stelle e così via. 
-                    In sostanza la base è il doppio dell'altezza + le stelle sono dispari quindi + 1
-                    */
-                for(int j = 0; j < (i * 2 + 1); j++) {
-                    // Prima stella : j == 0
-                    // Stella fine riga : j == (2 * i)
-                    // Stelle su ultima riga : i == h - 1
-                    if(j == 0 || j == (2 * i) || i == h - 1) {
-                        cout<<"* ";
-                    } else {
-                        cout<<"  ";
-                    }
-                }
-                cout<<'\n';
             }
+            cout<<'\n';
         }
         ```
         - Output:
@@ -475,40 +376,33 @@ Questa è una lista di cosa fa ciascuna di esse:
 
         - Esempio (Geometria : Albero): 
         ```c++
-        #include <iostream>
+        int h;
 
-        using std::cout;
-        using std::cin;
+        cout<<"Altezza: ";
+        cin>>h;
 
-        int main() {
-            int h;
-
-            cout<<"Altezza: ";
-            cin>>h;
-
-            // Corona
-            for(int i = 0; i <= h; i++) {
-                int spaceCount = h - i + 1;
-                int starCount = (i * 2) - 1;
-                
-                for(int j = 0; j < spaceCount; j++) {
-                    cout<<" ";
-                }
-
-                for(int j = 0; j < starCount; j++) {
-                    cout<<"*";
-                }
-
-                cout<<'\n';
+        // Corona
+        for(int i = 0; i <= h; i++) {
+            int spaceCount = h - i + 1;
+            int starCount = (i * 2) - 1;
+            
+            for(int j = 0; j < spaceCount; j++) {
+                cout<<" ";
             }
 
-            // Tronco
-            for(int i = 0; i < 3; i++) {
-                for(int j = 0; j < h; j++) {
-                    cout<<" ";
-                }
-                cout<<"*\n";
+            for(int j = 0; j < starCount; j++) {
+                cout<<"*";
             }
+
+            cout<<'\n';
+        }
+
+        // Tronco
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < h; j++) {
+                cout<<" ";
+            }
+            cout<<"*\n";
         }
         ```
         Output:
@@ -526,7 +420,7 @@ Questa è una lista di cosa fa ciascuna di esse:
         ```
 
 - ### Cicli While:
-    - 
+    - Smette di ciclare quando la condizione è falsa
     - Esempio:
     ```c++
     // Un semplice ciclo while che conta fino a 10 (meglio farlo con un ciclo for o un ciclo do-while)
@@ -555,20 +449,12 @@ Questa è una lista di cosa fa ciascuna di esse:
     - Esempio:
     ```c++
     // Un semplice ciclo do-while che conta fino a 10
+    int num = 1;
 
-    #include <iostream>
-
-    using std::cout;
-    using std::endl;
-
-    int main() {
-        int num = 1;
-
-        do {
-            cout<<num<<endl;
-            num++;
-        } while(num <= 10);
-    }
+    do {
+        cout<<num<<endl;
+        num++;
+    } while(num <= 10);
     ```
 
 - ### Istruzioni Goto:
@@ -577,31 +463,35 @@ Questa è una lista di cosa fa ciascuna di esse:
     - Esempio:
     ```c++
     // Un semplice esempio di istruzione goto che aiuta con compiti domestici giornalieri
+    int age = 0;
 
-    #include <iostream>
+    start:
+        cout<<"Quanti anni hai? ";
+        cin>>age;
 
-    using std::cout;
-    using std::cin;
-    using std::endl;
-
-    int main()
-    {
-        int age = 0;
-
-        start:
-            cout<<"Quanti anni hai? ";
-            cin>>age;
-
-        if(age < 18) {
-            cout<<"PORTAMI UNA BIRRA!"<<endl;
-            goto start;
-        } else {
-            cout<<"Posso avere un po' d'acqua, per favore?"<<endl;
-        }
-
-        return 0;
+    if(age < 18) {
+        cout<<"PORTAMI UNA BIRRA!"<<endl;
+        goto start;
+    } else {
+        cout<<"Posso avere un po' d'acqua, per favore?"<<endl;
     }
     ```
+
+## Array
+Praticamente sono solo liste, quando vengono inizializzati nelle parentesi quadre con il numero di elementi, quando vengono chiamati partono da 0 quindi -1.
+Esempio:
+```c++
+int arr[3] = {1, 2, 3};
+// Ciclo attraverso l'array
+arr[0] = 0;
+cout<<arr[0]<<'\n';
+for (int i: arr) {
+    cout<<i<<endl
+}
+for (int i = 0; i < 3; i++) {
+    cout<<i<<endl
+}
+```
 
 ## Funzioni
 Le Funzioni sono ciò in cui scrivi il codice, infatti il `int main() {}` che hai visto finora è anche una funzione;
@@ -676,19 +566,46 @@ Per risolvere questo, usiamo la "Chiamata per Riferimento" che significa semplic
 `num = rand() % (max - min + 1)` // Returns : [0, max - min]
 `num = rand() % (max - min + 1) + min` // Returns : [min, max]
 
-## Array
-Praticamente sono solo liste, quando vengono inizializzati nelle parentesi quadre con il numero di elementi, quando vengono chiamati partono da 0 quindi -1.
-Esempio:
+## Pointer
+Sono variabili che "puntano" nella memoria agli INDIRIZZI di altre variabili.
+Dichiarazione "tipo * nome"
+`int *ptr` ptr è il nome della variabile, * asterisco (senza è una variabile normale, multipli se pointer a pointer), il tipo di dato a cui punta (int)
 ```c++
-#include <iostream>
-int arr[3] = {1, 2, 3};
-// Ciclo attraverso l'array
-arr[0] = 0;
-cout<<arr[0]<<'\n';
-for (int i: arr) {
-    std::cout<<i<<std::endl
-}
-for (int i = 0; i < 3; i++) {
-    std::cout<<i<<std::endl
-}
+int x = 10;
+int *ptr = &x;
+// & = Operatore Indirizzo, Usato per puntare alla POSIZIONE dei dati di x (indirizzo)
+int y = *ptr
+// * = Operatore di Dereferenziazione, Usato per accedere ai dati dall'INDIRIZZO a cui il pointer punta
+```
+NullPointerException, indirizzo invalido (mancante, corrotto, intenzionale, cambio posizione - aggiornamento, etc)
+`int *ptr = nullptr // Intenzionale`
+
+Pointer + Array
+```c++
+int arr[3] = {5, 10, 5}
+int *ptr = arr; // Punta al primo elemento nell'array, 5
+ptr++; // Sposta una volta a destra, 10
+ptr--; // Sposta una volta a sinistra, 5
+ptr = ptr + 2; // 15
+std::cout<<*ptr<<'\n' // Per stamparlo usa l'asterisco per estrarre i dati
+```
+
+Pointer++
+```c++
+int var = 10;
+int *ptr = &var;
+int **ptr2 = &ptr;
+int ***ptr3 = &ptr2;
+std::cout<<**ptr2<<'\n'; // Doppia asterisco pk 2 pointer
+std::cout<<***ptr3<<'\n'; // Triplo asterisco pk 3 pointer
+```
+
+Allocazione Dinamica della Memoria (dinamica = a runtime, quando esegue codice, statica : cioè array dimensione fissa, etc)
+```c++
+int* ptr = new int;  // Allocare (dinamicamente) la memoria per un intero
+*ptr = 20;
+
+std::cout << *ptr << std::endl;  // Stampa 20
+
+delete ptr;  // Deallocare la memoria
 ```
