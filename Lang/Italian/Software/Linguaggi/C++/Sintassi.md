@@ -485,11 +485,15 @@ int arr[3] = {1, 2, 3};
 // Ciclo attraverso l'array
 arr[0] = 0;
 cout<<arr[0]<<'\n';
+
 for (int i: arr) {
-    cout<<i<<endl
+    cout<<i<<endl;
 }
 for (int i = 0; i < 3; i++) {
-    cout<<i<<endl
+    cout<<i<<endl;
+}
+for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
+    i < sizeof(arr)/sizeof(arr[0])-1 ? cout<<arr[i]<<", " : cout<<arr[i]<<'\n';
 }
 ```
 
