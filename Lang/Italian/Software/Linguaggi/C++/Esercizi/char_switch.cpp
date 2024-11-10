@@ -8,6 +8,7 @@ int main() {
 
     cout<<"Voto :";
     cin>>voto;
+    voto = toupper(voto);
 
     switch(voto) {
         case 'A':

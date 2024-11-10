@@ -78,6 +78,4 @@ int main() {
 		arr4[i] = c_arr[i];
 		cout<<"\narr4: "<<arr4[i]<<'\t'<<"c_arr: "<<c_arr[i];
 	}
-	
-	// Compiti : es.10 && es.11, p.61
 }
