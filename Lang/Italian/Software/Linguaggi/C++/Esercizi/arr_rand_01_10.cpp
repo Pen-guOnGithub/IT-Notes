@@ -16,6 +16,8 @@ int main() {
     for(int i = 0; i < 8; i++) {
         // 1 << i is known as Bit Shifting (bitwise operation to calculate pow of 2)
         num += arr[7-i] * (1 << i);
+        // Can also be done using pow and #include <cmath>
+        // num += arr[7-i] * pow(2, i);
     }
     cout<<" in decimale è: "<<num;
 }

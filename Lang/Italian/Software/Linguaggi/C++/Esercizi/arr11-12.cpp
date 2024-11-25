@@ -9,10 +9,11 @@ int main() {
     char arr[30], arr1[30], arr2[30], arr3[30]; // 29ch + '\0' = Null Terminator
 
     int ct = 1, size; // array, do-while check, array size counters
-    bool inv, alp = false; // invalid ch check, alphabetic order check
+    bool inv, alp = true; // invalid ch check, alphabetic order check
 
     while(ct <= 3) {
-        cout<<"Parola #"<<ct<<" (<= 30 ch): ";
+        if(ct != 1) cout<<'\n';
+        cout<<"\nParola #"<<ct<<" (<= 30 ch): ";
         inv = false;
         do {
             cin.get(arr, 30); // Same as cin>>arr but limits to 29ch + \0
@@ -54,43 +55,45 @@ int main() {
                     break;
             }
         }
-        cout<<'\n';
-
+        // cout<<"\n\n";
         ct++;
     }
 
-    cout<<"Ordine Alfabetico: ";
-    if(int(arr1[0]) > int(arr2[0])) {
-        if(int(arr1[0]) > int(arr3[0])) {
-            if(int(arr2[0]) > int(arr3[0])) {
-                // 1, 2, 3
-                alp = true;
-                cout<<"Sono già in Ordine Alfabetico";
-            } else {
-                // 1, 3, 2
-                cout<<"Non sono già in Ordine Alfabetico: ";
-                cout<<"\nOrdine Alfabetico : "<<arr1<<", "<<arr3<<", "<<arr2;
-            }
-        } else {
-            // 3, 1, 2
-            cout<<"Non sono già in Ordine Alfabetico: ";
-            cout<<"\nOrdine Alfabetico : "<<arr3<<", "<<arr1<<", "<<arr2;
-        }
-    } else {
-        if(int(arr1[0]) > int(arr3[0])) {
-            // 2, 1, 3
-            cout<<"Non sono già in Ordine Alfabetico: ";
-            cout<<"\nOrdine Alfabetico : "<<arr2<<", "<<arr1<<", "<<arr3;
-        } else {
-            if(int(arr2[0]) > int(arr3[0])) {
-                // 2, 3, 1
-                cout<<"Non sono già in Ordine Alfabetico: ";
-                cout<<"\nOrdine Alfabetico : "<<arr2<<", "<<arr3<<", "<<arr1;
-            } else {
-                // 3, 2, 1
-                cout<<"Non sono già in Ordine Alfabetico: ";
-                cout<<"\nOrdine Alfabetico : "<<arr3<<", "<<arr2<<", "<<arr1;
-            }
+    // Riordinamento Alfabetico
+    char temp[30]; // Array Temporaneo usato per scambi
+
+    // Confronto arr1 e arr2
+    int i = 0;
+    while(arr1[i] != '\0' && arr2[i] != '\0' && arr1[i] == arr2[i]) i++;
+    if(arr1[i] < arr2[i]) {
+        for(int j = 0; j < 30; j++) {
+            temp[j] = arr1[j];
+            arr1[j] = arr2[j];
+            arr2[j] = temp[j];
         }
     }
+
+    // Confronto arr2 e arr3
+    i = 0;
+    while (arr2[i] != '\0' && arr3[i] != '\0' && arr2[i] == arr3[i]) i++;
+    if (arr2[i] < arr3[i]) {
+        for (int j = 0; j < 30; j++) {
+            temp[j] = arr2[j];
+            arr2[j] = arr3[j];
+            arr3[j] = temp[j];
+        }
+    }
+
+    // Confronto arr3 e arr1
+    i = 0;
+    while (arr3[i] != '\0' && arr1[i] != '\0' && arr3[i] == arr1[i]) i++;
+    if (arr3[i] < arr1[i]) {
+        for (int j = 0; j < 30; j++) {
+            temp[j] = arr3[j];
+            arr3[j] = arr1[j];
+            arr1[j] = temp[j];
+        }
+    }
+
+    cout<<"\n\nOrdine Alfabetico: "<<arr1<<", "<<arr2<<", "<<arr3<<"\n\n";
 }

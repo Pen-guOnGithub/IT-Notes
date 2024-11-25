@@ -10,6 +10,7 @@ int main() {
     char arr[11]; // + \0
 
     cout<<"Inserisci una parola (<= 10 ch): ";
+    // strlen(arr) or cin.get(arr, 10) WITHOUT a do-while loop
     do {
         cin>>arr;
         if(strlen(arr) > 10 || strlen(arr) == 0) {
