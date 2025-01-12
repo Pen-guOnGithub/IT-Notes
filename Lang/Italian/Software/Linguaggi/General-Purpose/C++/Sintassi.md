@@ -4,8 +4,10 @@ Caratteristiche:
 - Orientato agli oggetti
 - Usa ;
 - Case-sensitive
+
 Impieghi:
 - Scuola (1ª Lingua)
+- AGGIUNGERE
 
 ## File Structure
 Esempio:
@@ -35,7 +37,16 @@ float num = 1.5;
 
 // Double (Decimali, numeri più grossi)
 double num = 2.5;
+```
 
+Logici:
+```c++
+// Booleani (Vero (true, 1) o Falso (false, 0))
+bool b = true; // b = 1
+```
+
+Testi:
+```c++
 // Carattere (Un Carattere)
 char ch = 'A';
 
@@ -45,18 +56,119 @@ using std::string;
 string str = "Ciao Mondo";
 ```
 
+## Modificatori di Tipo
+Parole usate davanti a dei tipi di dati per modificarli;
+- signed :
+    - IT = con segno
+    - In un sistema di 8 bit (un byte) il MSB rappresenta il segno (5 = 00000101, -5 = 10000101)
+        - MSB :
+            - = 0, Numero Negativo o Zero
+            - = 1, Numero Positivo
+        - Se il sistema fosse di 4 bit invece -5 sarebbe 1101
+- unsigned :
+    - IT = senza segno
+    - Non importa il segno e tutta la sequenza rappresenta la quantità (1101 = 13)
+- short :
+    - IT = corto
+    - Usato per gli interi piccoli :
+        - signed : [-32768, 32767]
+        - unsigned : [0, 65535]
+    - Su molte architetture, dimensione di 2 byte
+    - Esempio :
+    ```c++
+    short int x = 5;
+    // o anche solo "short x = 5"
+    ```
+- long :
+    - IT = lungo
+    - Usato per gli interi grandi 
+    - dimensione >= 4 byte, 8 su molte architetture moderne
+- const :
+    - IT = costante
+    - Il valore della variabile non può essere modificato
+- volatile :
+    - IT = "
+    - Il valore della variabile può essere modificato anche fuori dal programma (es. Hardware)
+- mutable :
+    - IT = mutabile
+    - a
+
+## Conversione di Tipo
+La conversione tra i diversi tipi di dati può essere di due tipologie, ecco quali:
+
+- Implicita (Coercizione):
+    - Fatta automaticamente dal compilatore
+    - Generalmente sicura
+    - In una conversione, qualsiasi tipo può essere automaticamente convertito in un tipo di dato più grande :
+    ```c++
+    bool --> char --> short --> int --> unsigned --> long --> unsigned --> long long --> float --> double --> long double
+    // Tenere sempre in considerazione i modificatori di tipo (short, long, unsigned, etc)
+    ```
+    - Esempio:
+        ```c++
+        int a = 5;
+        double b = a;
+        
+        cout<<"b = "<<b;
+        ```
+        Output:
+        ```c++
+        b = 5.0 // Il compilatore ha convertito l'intero in un double
+        ```
+- Esplicita (Casting): 
+    - Fatta scrivendo un casting a un'altro tipo
+    - Può comportare rischi, come perdita di dati
+    - Ci sono diversi tipi di typecasting, che sono:
+        - Stile **C** :
+            - Un metodo solo preso da C
+            - Sintassi: `int a = (int)b;`
+            - Esempio:
+            ```c++
+            double b = 5.75;
+            int a = (int)b; // Casting da double ad un intero
+            
+            cout<<"a = "<<a; // a = 5
+            ```
+        - Stile **C++** :
+            - Diversi metodi, ma il più usato è `static_cast`
+            - Sintassi: `int a = static_cast<int>(b);`
+            - Esempio:
+            ```c++
+            double b = 5.75;
+            int a = static_cast<int>(b); // Casting da double ad un intero
+
+            cout<<"a = "<<a; // a = 5
+            ```
+
 ## Operatori
 Ci sono diversi tipi di operatori, e questi sono:
 - Aritmetici = {+, -, *, /, %}
+    - Per sommare, unire, dividere
 - Relazionali = {>, >=, <, <=, ==, !=}
+    - Per trovare relazioni tra valori
 - Logici = {&&, ||, !}
+    - '&&' : AND
+    - '||' : OR
+    - '!' : NOT
 - Bitwise = {&, |, <<, >>, ~, ^}
+    - a
 - Assegnazione = {=, +=, -=, *=, /=, %=}
-- Unary = {++, --}
+- Unary = {+, -, ++, --, !, ~, sizeof}
+    - Unary '+' : Forza un numero positivo
+    - Unary '-' : Forza un numero negativo
+    - '++' : Incremento (x++ = ++x = x+1)
+    - '--' : Decremento (x-- = --x = x-1)
+    - '!' Logico : NOT Logico (Sia Unary che Logico, Inverte la logica da vero a falso e viceversa)
+    - '~' Bitwise : NOT Bitwise (Sia Unary che Bitwise, Inverte tutti i Bit da 0 a 1 e viceversa)
+    - 'sizeof' : Prende la dimensione di un tipo o una variabile
+        - x = 5, sizeof(x) = 5
+        - sizeof(int) = Dimensione di un int 
 - Ternario = { ? : }
 - Risoluzione di Ambito = { :: }
 - Indirizzo = { & }
+    - Nei Pointer, prende la posizione della memoria (x = 5, &x dice dov'è x per poi accedere)
 - Dereferenziazione = { *, ** }
+    - Nei Pointer, prende il valore dalla memoria passando per il pointer (cout<<*ptr)
 
 Non preoccuparti di capire il codice adesso, ma guarda solo a come e dove sono usati i diversi operatori;
 ```c++
@@ -82,7 +194,7 @@ int main() {
         std::cin>>op;
         // Relazionale (!=) & Ternario (?:)
         strchr(str, op) != NULL ? allowed = true : allowed = false;
-        // Logico (!)
+        // NOT Logico e Unary (!)
     } while(!allowed);
 
     switch(op) {
@@ -418,6 +530,17 @@ Questa è una lista di cosa fa ciascuna di esse:
              *
              *
         ```
+    - Per ciclare facilmente un Array (prossima sezione, ma qualsiasi contenitore) solitamente si usano o i cicli For o i cicli For-each
+        - Esempio :
+        ```c++
+        // Inizializzazione di un Array "arr" di int
+        int arr[3] = {1, 2, 3};
+
+        // For-each (tipo_array variabile : nome_array)
+        for(int i : arr) {
+            cout<<arr[i]<<" ";
+        }
+        ```
 
 - ### Cicli While:
     - Smette di ciclare quando la condizione è falsa
@@ -478,23 +601,161 @@ Questa è una lista di cosa fa ciascuna di esse:
     ```
 
 ## Array
-Praticamente sono solo liste, quando vengono inizializzati nelle parentesi quadre con il numero di elementi, quando vengono chiamati partono da 0 quindi -1.
+Sono dei contenitori di più variabili in una a dimensione fissa impostata all'inizializzazione;\
+Le variabili singole si accedono con gli [ indici ], che partono da 0 per il primo elemento;\
 Esempio:
 ```c++
+// Inizializzazione
 int arr[3] = {1, 2, 3};
-// Ciclo attraverso l'array
+
+// Cambio il primo numero
 arr[0] = 0;
 cout<<arr[0]<<'\n';
 
+// Ciclo attraverso l'array con un ciclo for-each
 for (int i: arr) {
-    cout<<i<<endl;
+    // Stampo e separo i numeri con spazio
+    cout<<i<<" ";
 }
+cout<<'\n';
+
+// Ciclo manualmente attraverso l'array
 for (int i = 0; i < 3; i++) {
-    cout<<i<<endl;
+    cout<<arr[i];
+    // Separo i numeri con virgola
+    if(i < 2) cout<<", ";
 }
-for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
-    i < sizeof(arr)/sizeof(arr[0])-1 ? cout<<arr[i]<<", " : cout<<arr[i]<<'\n';
+cout<<'\n';
+
+// Ciclo manualmente INVERSO attraverso l'array
+for (int i = 2; i >= 0; i--) {
+    cout<<arr[i];
+    // Separo i numeri con virgola
+    if(i > 0) cout<<", ";
 }
+```
+Output:
+```
+0
+0 2 3 
+0, 2, 3
+3, 2, 0
+```
+Si può anche omettere la dimensione dell'array quando lo si inizializza, ma siccome solitamente previene che vengano commessi altri errori è considerata una buona pratica sempre specificarla;
+Esempio:
+```c++
+int arr1[] = {1, 2, 3};
+// Il compilatore capisce che la dimensione è di 3...
+arr1[0] = 0; // ...e riesce a cambiare il contenuto
+
+// ATTENZIONE - Questo è un rischio quando si omette la dimensione E l'inizializzazione :
+
+int arr2[]; // Il compilatore non ha dati...
+arr2[0] = 1; // ...e non riesce a cambiare il contenuto
+arr2[1] = 2; // (perchè non ha una dimensione l'array)
+```
+
+Gli array non sono solo di numeri ma possono anche essere di caratteri, come se fossero stringhe e ogni indice corrisponde appunto ad un carattere;\
+Questi array di caratteri devono sempre avere un spazio in più nella dimensione della parola perchè per segnare il fine della parola usano il carattere '\0' detto "Null Terminator", che torna utile anche a noi per capire la lunghezza di questi array con i cicli senza usare funzioni;
+
+Gli array possono anche essere fatti di stringhe come indici ma si inizializzerebbero con string e non con char;
+
+Esempio:
+```c++
+// Array di Caratteri
+char arr[5] = "Ciao"; // "Ciao" + '\0' --> 4 Caratteri Parola + 1 Null Terminator = Dimensione di 5
+cout<<arr[0]<<'\n'; // 'C'
+cout<<arr<<'\n'; // "Ciao"
+
+int i = 0;
+while(arr[i] != '\0') {
+    i++;
+}
+cout<<"Dimensione Array = "<<i+1<<'\n'; // 5
+// La dimensione si può anche contare con un'altra variabile che parte da 1, ma così è meglio
+cout<<"Lunghezza Parola = "<<i<<'\n'; // 4
+cout<<"Lunghezza Parola = "<<strlen(arr)<<'\n'; // 4, Senza cicli, usando una funzione
+
+// Array di Stringhe
+string str_arr[2] = {"Buona", "Giornata"};
+cout<<str_arr[0]<<' '<<str_arr[1]<<'\n'; // "Buona Giornata"
+cout<<str_arr; // "0x16b5ef178, lo considera un pointer quindi non funziona --> si usa il metodo fatto vedere sopra"
+```
+ARRAY BIDIMENSIONALI\
+VECTORS
+
+## Stringhe
+Come abbiamo già visto, C++ ha due modi per usare le stringhe;\
+Possono essere o della classe `<string>` (della libreria Standard Template Library) o della libreria `<cstring>`;
+
+Le stringhe `<cstring>` sono più vecchie e sono una lista di caratteri che termina con il Null Terminator;\
+Questa libreria contiene anche funzioni come `strlen()` che ci permettono facilmente di capire la dimensione di una sequenza;\
+Contiene anche altre funzioni come `strcpy()`, `strcat()` e `strcmp()` che non ho ancora studiato; DA FARE!!
+
+A differenza delle altre, le stringhe `<string>` sono degli Oggetti e si inizializzano in più modi :
+```c++
+#include <string>
+using std::string;
+
+string str1 ("stringa numero 1");
+string str2 = "stringa numero 2";
+
+string str2_copy (str2); // "stringa numero 2"
+string str2_str (str2, 0, 7); // "stringa"
+string str2_num2 (str2, 8); // "numero 2", tutto dopo l'indice 8
+string str2_num (str2, 8, 6); // "numero", selezione dopo l'indice 8 per 6 caratteri
+
+string str3_asterisk (5, '*'); // "*****", ripetizione di un carattere (asterisco) 5 volte
+
+string str4; // Questa poi possiamo farla inserire in input per esempio
+
+// ...solitamente è più efficace inizializzarle tutte sulla stessa riga
+// (ma qui sono molti esempi quindi va bene così)
+```
+Per inserire un input nella stringa "str3" ci sono diversi metodi :
+```c++
+cout<<"Inserisci una parola: ";
+cin>>str4; // Si ferma al primo spazio
+// Non si può usare cin.get() perchè quello funziona solo con <cstring> (array di caratteri)
+cout<<str4<<'\n';
+
+// Qui se stessi scrivendo un codice vero e non solo appunti il cin del primo metodo trasferirebbe il resto del contenuto dopo lo spazio all'altro metodo, quindi sarebbe necessario includere questa riga "cin.ignore(100, '\n')"
+
+cout<<"Inserisci una parola: ";
+getline(cin, str4); // Prende tutta la riga e riempie la stringa, INCLUSI gli spazi (metodo migliore)
+cout<<str4;
+```
+(Esempio di) Output:
+```c++
+Inserisci una parola: Ciao mondo
+// Ciao
+// Ciao mondo
+```
+Le Stringhe `<string>` hanno diversi vantaggi, tra cui alcuni Metodi :
+- `.at()`,
+    - Utilizzo: Se l'indice eccede la dimensione della stringa errore 'out_of_range'
+    - Alternativa: `str[0] = 'T';`
+    - Sintassi: `str.at(0) = 'T';`
+- `.length()`,
+    - Utilizzo: Restituisce la lunghezza della stringa
+    - Sintassi: `str.length();`
+- `.replace()`,
+    - Utilizzo: Sostituisce una parte di una stringa con un'altra stringa
+    - Sintassi: `str.replace(pos_iniziale, lunghezza_sostituire, "nuova stringa");`
+- `.erase()`,
+    - Utilizzo: Cancella una parte della stringa
+    - Sintassi: `str.erase(pos_iniziale, lunghezza_cancellare);`
+- `.find()`,
+    - Utilizzo: Trova la prima occorrenza di una sottostringa o un carattere all'interno di una stringa
+    - Sintassi: `str.find("sottostringa", pos_iniziale`(opzionale)`);`
+        - Se non trova la sottostringa restituisce la costante `string::npos`
+
+(Esempio di) Conteggio Lettere in Stringhe `<string>` :
+```c++
+for(int i = 0; i < str.length(); i++) {
+    if(str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z') chars++;
+}
+cout<<"\nNumber of Chars = "<<chars;
 ```
 
 ## Funzioni
@@ -526,6 +787,12 @@ Ci sono due tipo di funzioni, in base a se sono state scritte dall'utente o no:
             - Utilizzo: Radice Quadrata
             - Alternativa: `pow(num, 0.5);`
             - Sintassi: `sqrt(num);`
+        - File Header: `#include <cctype>`, Funzione: `toupper()`,
+            - Utilizzo: Carattere in Maiuscolo
+            - Sintassi: `toupper(ch);`
+        - File Header: `#include <cctype>`, Funzione: `tolower()`,
+            - Utilizzo: Carattere in Minuscolo
+            - Sintassi: `tolower(ch);`
         - File Header: `#include <cstring>`, Funzione: `strchr()`,
             - Utilizzo: Restituisce un pointer alla posizione del primo carattere desiderato nella stringa
             - Sintassi: `char *strchr(const char *str, int c);`
@@ -562,6 +829,9 @@ Nella "Chiamata per Valore" stiamo trattando una variabile inizializzata diretta
 Per risolvere questo, usiamo la "Chiamata per Riferimento" che significa semplicemente passare un &indirizzo (quindi la posizione) della variabile nella funzione, facendo si che si salvi nell'&. Torna ai pointer se non hai ancora capito bene.
 
 ## Pseudorandomness (PRNG)
+`#include <stdlib.h>`
+`#include <ctime>`
+
 `srand(time(NULL));` // PRNG(enerator)
 
 `player = rand()%6` // Returns : [0, 5]
