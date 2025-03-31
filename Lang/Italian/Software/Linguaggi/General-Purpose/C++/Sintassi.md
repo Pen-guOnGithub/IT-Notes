@@ -798,48 +798,142 @@ Ci sono due tipo di funzioni, in base a se sono state scritte dall'utente o no:
             - Sintassi: `char *strchr(const char *str, int c);`
 - ### Funzioni Definite dall'Utente:
     - Funzioni dichiarate dall'utente nel programma (cioè qualsiasi funzione che crei);
-    - Esempio:
-        ```c++
-        #include <iostream>
-        #include <cstring>
+    - Chiamata per Valore:
+        - Modifiche di istanze locali (da ritornare al main)
+        - Esempio:
+            ```c++
+            #include <iostream>
 
-        using std::cout;
-        using std::cin;
-        using std::string;
+            using std::cout;
+            using std::cin;
 
-        string name;
+            // Si inizializzano sopra perché il programma legge da in alto e così sa che esiste
+            int sum(int num1, int num2);
 
-        string skibidize(string name);
+            int main() {
+                int n1, n2, tot;
 
-        int main() {
-            cout<<"Name: ";
-            cin>>name;
-            cout<<skibidize(name)<<'\n';
-        }
+                cout<<"#1: ";
+                cin>>n1;
+                cout<<"#2: ";
+                cin>>n2;
+                // n1 e n2 sono degli interi che nella funzione saranno num1 e num2
+                tot = sum(n1, n2);
+                cout<<"Sum: "<<tot<<'\n';
+            }
 
-        string skibidize(string name) {
-            return "Skibidi "+name;
-        }
-        ```
+            int sum(int num1, int num2) {
+                int total = 0;
+                // Il 'total' è SOLO nella memoria stack della funzione (si può accedere solo qui)
+                total = num1 + num2;
+                /*
+                    Possono ritornare SOLO 1 Valore (diamo il totale a MAIN)
+                    Se non lo ritornassimo NON cambierebbe il valore nel main
+                */
+                return total;
+            }
+            ```
+    - Chiamata per Riferimento:
+        - Accesso e modifiche dirette a valori
+        - Esempio:
+            ```c++
+            #include <iostream>
 
-Chiamata per valore e Chiamata per riferimento:
+            using std::cout;
+            using std::cin;
 
-Nella "Chiamata per Valore" stiamo trattando una variabile inizializzata direttamente passata a una funzione che ne cambia il valore, ma la variabile modificata viene memorizzata localmente nella memoria stack della funzione e quindi quando eseguiamo il cout della variabile otterremo il valore iniziale.
+            /* 
+                Void = Non ritorna nulla
+                &tot è un indirizzo, cioè diamo alla funzione un totale particolare
+            */
+            void sum(int num1, int num2, int &tot);
 
-Per risolvere questo, usiamo la "Chiamata per Riferimento" che significa semplicemente passare un &indirizzo (quindi la posizione) della variabile nella funzione, facendo si che si salvi nell'&. Torna ai pointer se non hai ancora capito bene.
+            int main() {
+                int n1, n2, tot = 0;
+
+                cout<<"#1: ";
+                cin>>n1;
+                cout<<"#2: ";
+                cin>>n2;
+                // Diamo il totale DEL MAIN
+                sum(n1, n2, tot);
+                cout<<"Sum: "<<tot<<'\n';
+            }
+
+            void sum(int num1, int num2, int &tot) {
+                // Modifichiamo direttamente il totale del main
+                tot = num1 + num2;
+            }
+            ```
 
 ## Pseudorandomness (PRNG)
-`#include <stdlib.h>`
+Pseudo-Generazione di Numeri
+
+File Header:\
+`#include <stdlib.h>`\
 `#include <ctime>`
 
 `srand(time(NULL));` // PRNG(enerator)
 
-`player = rand()%6` // Returns : [0, 5]
-`player = rand()%6+1;` // Returns : [1, 6]
+Esempi Semplici:\
+`num = rand()%6` // Ritorna : [0, 5]\
+`num = rand()%6+1;` // Ritorna : [1, 6]\
+Sintassi Generale:\
+`num = rand() % (max - min + 1)` // Ritorna : [0, max - min]\
+`num = rand() % (max - min + 1) + min` // Ritorna : [min, max]
 
-`num = rand() % (max - min + 1)` // Returns : [0, max - min]
-`num = rand() % (max - min + 1) + min` // Returns : [min, max]
+## File Management
+Lettura e Stampa su File di Testo
 
+File Header:\
+`#include <fstream>`
+
+`using std::ifstream` // Input\
+`using std::ofstream` // Output
+
+`ifstream varName` // Init. Variabile Input\
+`ofstream varName` // Init. Variabile Output
+
+Se un file NON esiste:
+- Input ritorna falso e smette l'exec.
+- Output CREA il file
+
+Esempio I/O:
+```c++
+#include <fstream>
+
+using std::ifstream;
+using std::ofstream;
+
+int main() {
+    ifstream input;
+    ofstream output;
+    int num, ct = 0, min = 999999999999; // ct = counter
+
+    input.open("fileName.txt");
+    if(input.is_open()) {
+        // eof() = 'end of line', legge finché no testo
+        while(!input.eof()) {
+            // Codice, brute force check del numero minimo
+            input>>num;
+            ct++;
+            if(num < min) min = num;
+        }
+    }
+
+    cout<<"There are "<<ct<<" numbers";
+
+    // ios::app vuol dire APPEND = AGGIUNGE testo, NON rimpiazza tutto
+    output.open("fileName.txt", ios::app);
+    if(output.is_open()) {
+        // AGGIUNGE "text" al file di output
+        output<<"text";
+    }
+    output.close();
+}
+```
+
+<!--
 ## Pointer
 Sono variabili che "puntano" nella memoria agli INDIRIZZI di altre variabili.
 Dichiarazione "tipo * nome"
@@ -883,3 +977,4 @@ std::cout << *ptr << std::endl;  // Stampa 20
 
 delete ptr;  // Deallocare la memoria
 ```
+-->

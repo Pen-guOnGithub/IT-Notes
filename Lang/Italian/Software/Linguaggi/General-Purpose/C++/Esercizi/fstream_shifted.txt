@@ -1,0 +1,4 @@
+73 92 57 63
+
+Shifted once to the right:
+63 73 92 57 
